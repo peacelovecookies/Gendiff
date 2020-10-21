@@ -11,6 +11,10 @@
   "bin": {
     "gendiff": "dist/bin/index.js"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/peacelovecookies/frontend-project-lvl2.git"
@@ -22,16 +26,21 @@
   },
   "homepage": "https://github.com/peacelovecookies/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^6.1.0",
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
-    "@babel/preset-env": "^7.12.1"
+    "@babel/preset-env": "^7.12.1",
+    "commander": "^6.1.0",
+    "lodash": "^4.17.20",
+    "yaml": "^1.10.0"
   },
   "devDependencies": {
+    "@jest/globals": "^26.4.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.4.2",
+    "jest-cli": "^26.4.2"
   }
 }

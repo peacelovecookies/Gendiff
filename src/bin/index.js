@@ -1,11 +1,21 @@
 #!/usr/bin/env node
 
-import { program } from 'commander';
+import { Command } from 'commander';
 import { version } from '../../package.json';
 
+import gendiff from '../gendiff';
+
+const program = new Command();
+
 program
-  .command('gendiff <filepath1> <filepath2>')
-  .description('Compares two configuration files and shows a difference.')
   .version(version)
-  .option('-f, --format [type]', 'output format')
-  .parse(process.argv)
+  .arguments('<filepath1> <filepath2>')
+  .description('Compares two configuration files and shows a difference.')
+  .option('-f, --format <type>', 'output format')
+  .action((filepath1, filepath2, cmdObj) => gendiff(
+    filepath1,
+    filepath2,
+    { options: { format: cmdObj.format } },
+  ));
+
+program.parse(process.argv);

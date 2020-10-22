@@ -11,7 +11,7 @@ program
   .version(version)
   .arguments('<filepath1> <filepath2>')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format <type>', 'output format')
+  .option('-f, --format <type>', 'output format', 'string')
   .action((filepath1, filepath2, cmdObj) => gendiff(
     filepath1,
     filepath2,

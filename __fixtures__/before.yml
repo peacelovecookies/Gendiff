@@ -14,3 +14,7 @@
   zap:
     brannigan:
       leela
+  zoidberg:
+    wants:
+      to:
+        eat

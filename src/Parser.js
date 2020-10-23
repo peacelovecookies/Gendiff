@@ -4,7 +4,7 @@ import path from 'path';
 
 import { fileURLToPath } from 'url';
 
-import { merge } from 'lodash';
+import _ from 'lodash';
 import { isObject, getMeta } from './utils';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +20,7 @@ export default class Parser {
     const { fileBefore, fileAfter } = this;
 
     const iter = (obj1, obj2) => {
-      const merged = merge(obj1, obj2);
+      const merged = _.merge(obj1, obj2);
       const entries = Object.entries(merged);
       return entries
         .sort(([key1], [key2]) => key1 > key2)
@@ -43,7 +43,7 @@ export default class Parser {
 
   static parse(filepath) {
     const fullpath = path.resolve(__dirname, filepath);
-    const file = fs.readSync(fullpath);
+    const file = fs.readFileSync(fullpath, 'utf-8');
     const ext = path.extname(filepath);
     const parser = this.parsers[ext];
 

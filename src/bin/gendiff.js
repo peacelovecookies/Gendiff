@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { version } from '../package.json';
+import { version } from '../../package.json';
 
-import gendiff from '../src/gendiff';
+import gendiff from '../gendiff';
 
 const program = new Command();
 

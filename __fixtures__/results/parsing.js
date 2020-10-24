@@ -92,18 +92,30 @@ const ast = [
   {
     key: 'zapp',
     type: 'deleted',
-    oldValue: {
-      brannigan: 'leela',
-    },
+    oldValue: [
+      {
+        key: 'brannigan',
+        type: 'unchanged',
+        value: 'leela',
+      },
+    ],
   },
   {
     key: 'zoidberg',
     type: 'changed',
-    oldValue: {
-      wants: {
-        to: 'eat',
+    oldValue: [
+      {
+        key: 'wants',
+        type: 'nested',
+        children: [
+          {
+            key: 'to',
+            type: 'unchanged',
+            value: 'eat',
+          },
+        ],
       },
-    },
+    ],
     newValue: 'the doctor',
   },
 ];

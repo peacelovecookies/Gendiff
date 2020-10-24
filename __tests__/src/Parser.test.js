@@ -1,8 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 
 import path from 'path';
-import _ from 'lodash';
-
 import { fileURLToPath } from 'url';
 
 import Parser from '../../src/Parser';
@@ -12,13 +10,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 describe('Parsing tests', () => {
-  const differentFormatsCase = [
+  const differentExtCase = [
     ['.json', parsedObj],
     ['.yaml', parsedObj],
     ['.yml', parsedObj],
   ];
 
-  test.each(differentFormatsCase)('%p format', (ext, result) => {
+  test.each(differentExtCase)('%p format', (ext, result) => {
     const filepath = path.resolve(__dirname, '../..', '__fixtures__', `before${ext}`);
     const parsed = Parser.parse(filepath);
     expect(parsed).toEqual(result);

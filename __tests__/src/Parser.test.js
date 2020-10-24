@@ -29,6 +29,7 @@ describe('Parsing tests', () => {
     const parsed2 = Parser.parse(filepath2);
 
     const ast = Parser.getAST(parsed1, parsed2);
+    console.log(ast);
     expect(ast).toEqual(resultAST);
   });
 });

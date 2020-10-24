@@ -28,8 +28,9 @@ export default class Parser {
     if (obj1[key] === obj2[key]) {
       return { key, type: 'unchanged', value: oldValue };
     }
+    // eslint-disable-next-line object-curly-newline
     return { key, type: 'changed', oldValue, newValue };
-  };
+  }
 
   static getAST(fileBefore, fileAfter) {
     const iter = (...objects) => {

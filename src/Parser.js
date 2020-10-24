@@ -5,30 +5,47 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import _ from 'lodash';
-import { isObject, getMeta } from './utils';
+import isObject from './utils';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default class Parser {
-  constructor(file1, file2) {
-    this.file1 = file1;
-    this.file2 = file2;
+  static getValue(key, obj) {
+    const value = obj[key];
+    return isObject(value) ? this.getAST(value, value) : value;
   }
 
-  getAST() {
-    const { fileBefore, fileAfter } = this;
+  static getMeta(key, [obj1, obj2]) {
+    const oldValue = this.getValue(key, obj1);
+    const newValue = this.getValue(key, obj2);
+    if (!_.has(obj2, key)) {
+      return { key, type: 'deleted', oldValue };
+    }
+    if (!_.has(obj1, key)) {
+      return { key, type: 'added', newValue };
+    }
+    if (obj1[key] === obj2[key]) {
+      return { key, type: 'unchanged', value: oldValue };
+    }
+    return { key, type: 'changed', oldValue, newValue };
+  };
 
-    const iter = (obj1, obj2) => {
-      const merged = _.merge(obj1, obj2);
-      const entries = Object.entries(merged);
-      return entries
-        .sort(([key1], [key2]) => key1 > key2)
-        .flatMap(([key, value]) => {
-          if (isObject(value)) {
-            return { key, children: iter(obj1[key], obj2[key]), type: 'nested' };
+  static getAST(fileBefore, fileAfter) {
+    const iter = (...objects) => {
+      const clone = _.cloneDeep(objects);
+      const [obj1, obj2] = objects;
+      const merged = _.merge(...clone);
+      const keys = Object.keys(merged);
+      return keys
+        .sort()
+        .flatMap((key) => {
+          const valueBefore = obj1[key];
+          const valueAfter = obj2[key];
+          if (isObject(valueBefore) && isObject(valueAfter)) {
+            return { key, type: 'nested', children: iter(valueBefore, valueAfter) };
           }
-          return getMeta(key, obj1, obj2);
+          return this.getMeta(key, objects);
         });
     };
 

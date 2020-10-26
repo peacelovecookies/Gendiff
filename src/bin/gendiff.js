@@ -1,21 +1,25 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { version } from '../../package.json';
+//import pkg from '../../package';
 
-import gendiff from '../gendiff';
+import gendiff from '../gendiff.js';
 
 const program = new Command();
 
 program
-  .version(version)
+  .version('0.0.1')
   .arguments('<filepath1> <filepath2>')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format <type>', 'output format', 'string')
-  .action((filepath1, filepath2, cmdObj) => gendiff(
-    filepath1,
-    filepath2,
-    { options: { format: cmdObj.format } },
-  ));
+  .option('-f, --format <type>', 'output format', 'pretty')
+  .action((filepath1, filepath2, cmdObj) => {
+    const result = gendiff(
+      filepath1,
+      filepath2,
+      { format: cmdObj.format },
+    );
+
+    console.log(`\n${result}`);
+  });
 
 program.parse(process.argv);

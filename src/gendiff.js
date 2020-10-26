@@ -1,12 +1,12 @@
-import Parser from './Parser';
+import Parser from './Parser.js';
+import Formatter from './Formatter.js';
 
 export default (filepath1, filepath2, options) => {
   const fileBefore = Parser.parse(filepath1);
   const fileAfter = Parser.parse(filepath2);
-  const ast = new Parser(fileBefore, fileAfter).getAST();
+  const ast = Parser.getAST(fileBefore, fileAfter);
 
-  // #TODO: create Formatter class which formats ast
-  // const formatter = new Formatter(options);
+  const formatter = new Formatter(options);
 
-  // return formatter.format(ast);
+  return formatter.stringify(ast);
 };

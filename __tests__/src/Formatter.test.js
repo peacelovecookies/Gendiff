@@ -15,12 +15,13 @@ describe('Formatting tests', () => {
   const filepath2 = path.resolve(__dirname, '../..', '__fixtures__', 'after.json');
   const file1 = Parser.parse(filepath1);
   const file2 = Parser.parse(filepath2);
-  const ast = Parser.getAST(file1, file2);
+  const parser = new Parser({});
+  const ast = parser.getAST(file1, file2);
 
   test('wrong format', () => {
     const formatter = new Formatter({ format: 'wrooooong' });
-    const formats = Object.keys(formatter.formatters).join(', ');
-    expect(() => formatter.stringify(ast)).toThrow(`Use of following formats: ${formats}`);
+    const formats = formatter.formatters.join(', ');
+    expect(() => formatter.stringify(ast)).toThrow(`Use one of the following formats: ${formats}`);
   });
   const differentFormatsCase = [
     ['pretty', stringFormat],

@@ -6,7 +6,11 @@ import _ from 'lodash';
 import isObject from './utils.js';
 
 export default class Parser {
-  static getMeta(key, [obj1, obj2]) {
+  constructor({ sort = true }) {
+    this.isSortNeeded = sort;
+  }
+
+  getMeta(key, [obj1, obj2]) {
     const oldValue = obj1[key];
     const newValue = obj2[key];
     if (!_.has(obj2, key)) {
@@ -25,13 +29,13 @@ export default class Parser {
     return { key, type: 'changed', oldValue, newValue };
   }
 
-  static getAST(fileBefore, fileAfter) {
+  getAST(fileBefore, fileAfter) {
+    const { isSortNeeded } = this;
     const iter = (...objects) => {
       const clone = _.cloneDeep(objects);
       const merged = _.merge(...clone);
-      const keys = Object.keys(merged);
+      const keys = isSortNeeded ? Object.keys(merged).sort() : Object.keys(merged);
       return keys
-        .sort()
         .map((key) => this.getMeta(key, objects));
     };
 

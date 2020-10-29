@@ -12,9 +12,9 @@ program
   .arguments('<filepath1> <filepath2>')
   .description('Compares two configuration files and shows a difference.')
   .option('-f, --format <type>', 'output format, by default "pretty"', 'pretty')
-  .option('-sg, --sign <type>', 'count of spaces. Recommended to use even number: 2, 4 or higher. By default, 4.', ' ')
-  .option('-sp, --spaces <number>', 'count of spaces in pretty format, by default 4.', 4)
-  .option('-sr, --sort <boolean>', 'sort output by keys. By default, true.', 'true')
+  .option('-n, --sign <type>', 'sign used for formatting identations. By default, " " (one space)', ' ')
+  .option('-s, --spaces <number>', 'count of spaces in pretty format, by default 4.', 4)
+  .option('-t, --sort <boolean>', 'sort output by keys. By default, true.', 'true')
   .action((filepath1, filepath2, cmdObj) => {
     // eslint-disable-next-line object-curly-newline
     const { format, sign, spaces, sort } = cmdObj;

@@ -1,13 +1,9 @@
 import { describe, expect, test } from '@jest/globals';
 
 import path from 'path';
-import { fileURLToPath } from 'url';
 
 import Parser from '../../src/Parser';
 import { parsedObj, ast as resultAST } from '../../__fixtures__/results/parsing';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 describe('Parsing tests', () => {
   test('unsupported extension', () => {

@@ -1,14 +1,10 @@
 import { describe, expect, test } from '@jest/globals';
 
 import path from 'path';
-import { fileURLToPath } from 'url';
 
 import Parser from '../../src/Parser';
 import Formatter from '../../src/Formatter';
 import { stringFormat, jsonFormat, plainFormat } from '../../__fixtures__/results/formatting';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 describe('Formatting tests', () => {
   const filepath1 = path.resolve(__dirname, '../..', '__fixtures__', 'before.json');

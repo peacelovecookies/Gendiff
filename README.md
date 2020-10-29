@@ -11,7 +11,7 @@ _If you want to use it as a library for your project, check following documentat
 
 `filepath1` (_String_): filepath to first (initial) file. Can be both absolute and relative.
 `filepath2` (_String_): filepath to second (changed) file. Can be both absolute and relative.
-`options` (_Object_): `!` for using default options, empty object {} must be pointed. Otherwise:
+`options` (_Object_):
 - `format` (_String_): format of outputed result. Can be 'pretty', 'json', 'plain', for more details check up examples. By default, 'pretty'. _[Optional]_
 - `sort` (_Boolean_): sort output by keys. By default, true. _[Optional]_
 - `spacesSign` (_String_): sign used for formatting identations. By default, ' ' (one space). _[Optional]_
@@ -22,6 +22,7 @@ _If you want to use it as a library for your project, check following documentat
 `diff` (_String_): difference between two files. Format of output depends on format option.
 
 ### Example
+
 
 
 ## CLI (in-terminal bin)

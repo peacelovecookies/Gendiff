@@ -1,7 +1,7 @@
 import Parser from './Parser.js';
 import Formatter from './Formatter.js';
 
-export default (filepath1, filepath2, options) => {
+export default (filepath1, filepath2, options = {}) => {
   const fileBefore = Parser.parse(filepath1);
   const fileAfter = Parser.parse(filepath2);
 

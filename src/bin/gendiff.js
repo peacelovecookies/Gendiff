@@ -13,7 +13,7 @@ program
   .description('Compares two configuration files and shows a difference.')
   .option('-f, --format <type>', 'output format, by default "pretty"', 'pretty')
   .option('-n, --sign <type>', 'sign used for formatting identations. By default, " " (one space)', ' ')
-  .option('-s, --spaces <number>', 'count of spaces in pretty format, by default 4.', 4)
+  .option('-s, --spaces <number>', 'count of spaces in pretty format, by default 4.', '4')
   .option('-t, --sort <boolean>', 'sort output by keys. By default, true.', 'true')
   .action((filepath1, filepath2, cmdObj) => {
     // eslint-disable-next-line object-curly-newline
@@ -28,7 +28,7 @@ program
       {
         format,
         spacesSign: sign,
-        spacesCount: spaces,
+        spacesCount: parseInt(spaces, 10),
         sort: booleans[sort],
       },
     );

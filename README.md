@@ -36,9 +36,11 @@ _If you want to use it as a library for your project, check following documentat
 
 ### Example
 
-Initial files:
-
-<!-- // file1.json
+<details>
+<summary>Initial files: </summary>
+    
+```javascript
+// file1.json
 {
   "z": true,
   "b": {
@@ -65,126 +67,156 @@ Initial files:
     "object": "here",
     "nobody": "reads documentation..."
   }
-} -->
-
-Pretty format:
-
-``` // app.js
-import gendiff from 'plc_gendiff';
-
-const prettyOptions = { format: 'pretty', spacesSign: '_' };
-const pretty = gendiff(path/to/file1, path/to/file2, prettyOptions);
+}
 ```
 
-console.log(pretty);
-<!-- {
-__+ add: {
-________nobody: reads documentation...
-________object: here
-____}
-__- array: {
-________change: this
-____}
-__+ array: now it is string
-__- array_as_value: [1, 2, 3]
-__+ array_as_value: [1, 2, 5]
-____b: {
-______- c: nested
-______+ c: 5
-____}
-__- or: change this
-__+ or: wanna some milk?
-__- y: {
-________delete: it
-____}
-____z: true
-} -->
+</details>
 
-``` // app.js
-import gendiff from 'plc_gendiff';
+<details>
+  <summary>Pretty format: </summary>
 
-const plainOptions = { format: 'plain', sort: 'false' };
-const plain = gendiff(path/to/file1, path/to/file2, plainOptions);
-```
-console.log(plain)
+  ```javascript
+  // app.js
+  import gendiff from 'plc_gendiff';
 
-<!-- Property 'b.c' was updated. From 'nested' to 5
-Property 'y' was removed
-Property 'array' was updated. From [complex value] to 'now it is string'
-Property 'or' was updated. From 'change this' to 'wanna some milk?'
-Property 'array_as_value' was updated. From [1, 2, 3] to [1, 2, 5]
-Property 'add' was added with value: [complex value] -->
+  const prettyOptions = { format: 'pretty', spacesSign: '_' };
+  const pretty = gendiff(path/to/file1, path/to/file2, prettyOptions);
+  ```
 
-``` // app.js
-import gendiff from 'plc_gendiff';
+  <details>
+    <summary>console.log(pretty);</summary>
 
-const jsonOptions = { format: 'json', sort: 2 };
-const json = gendiff(path/to/file1, path/to/file2, jsonOptions);
-```
-console.log(json)
-
-<!-- [
-  {
-    "key": "add",
-    "type": "added",
-    "newValue": {
-      "object": "here",
-      "nobody": "reads documentation..."
+    ```
+    {
+    __+ add: {
+    ________nobody: reads documentation...
+    ________object: here
+    ____}
+    __- array: {
+    ________change: this
+    ____}
+    __+ array: now it is string
+    __- array_as_value: [1, 2, 3]
+    __+ array_as_value: [1, 2, 5]
+    ____b: {
+    ______- c: nested
+    ______+ c: 5
+    ____}
+    __- or: change this
+    __+ or: wanna some milk?
+    __- y: {
+    ________delete: it
+    ____}
+    ____z: true
     }
-  },
-  {
-    "key": "array",
-    "type": "changed",
-    "oldValue": {
-      "change": "this"
-    },
-    "newValue": "now it is string"
-  },
-  {
-    "key": "array_as_value",
-    "type": "changed",
-    "oldValue": [
-      1,
-      2,
-      3
-    ],
-    "newValue": [
-      1,
-      2,
-      5
-    ]
-  },
-  {
-    "key": "b",
-    "type": "nested",
-    "children": [
-      {
-        "key": "c",
-        "type": "changed",
-        "oldValue": "nested",
-        "newValue": 5
+    ```
+
+  </details>
+
+</details>
+
+<details>
+  <summary>Plain format: </summary>
+
+  ``` // app.js
+  import gendiff from 'plc_gendiff';
+
+  const plainOptions = { format: 'plain', sort: 'false' };
+  const plain = gendiff(path/to/file1, path/to/file2, plainOptions);
+  ```
+
+  <details>
+    <summary>console.log(plain)</summary>
+    
+    Property 'b.c' was updated. From 'nested' to 5
+    Property 'y' was removed
+    Property 'array' was updated. From [complex value] to 'now it is string'
+    Property 'or' was updated. From 'change this' to 'wanna some milk?'
+    Property 'array_as_value' was updated. From [1, 2, 3] to [1, 2, 5]
+    Property 'add' was added with value: [complex value]
+  
+  </details>
+</details>
+
+<details>
+  <summary>Json format: </summary>
+
+  ``` // app.js
+  import gendiff from 'plc_gendiff';
+
+  const jsonOptions = { format: 'json', sort: 2 };
+  const json = gendiff(path/to/file1, path/to/file2, jsonOptions);
+  ```
+
+  <details>
+    <summary>console.log(json)</summary>
+
+  ```
+  [
+    {
+      "key": "add",
+      "type": "added",
+      "newValue": {
+        "object": "here",
+        "nobody": "reads documentation..."
       }
-    ]
-  },
-  {
-    "key": "or",
-    "type": "changed",
-    "oldValue": "change this",
-    "newValue": "wanna some milk?"
-  },
-  {
-    "key": "y",
-    "type": "deleted",
-    "oldValue": {
-      "delete": "it"
+    },
+    {
+      "key": "array",
+      "type": "changed",
+      "oldValue": {
+        "change": "this"
+      },
+      "newValue": "now it is string"
+    },
+    {
+      "key": "array_as_value",
+      "type": "changed",
+      "oldValue": [
+        1,
+        2,
+        3
+      ],
+      "newValue": [
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "key": "b",
+      "type": "nested",
+      "children": [
+        {
+          "key": "c",
+          "type": "changed",
+          "oldValue": "nested",
+          "newValue": 5
+        }
+      ]
+    },
+    {
+      "key": "or",
+      "type": "changed",
+      "oldValue": "change this",
+      "newValue": "wanna some milk?"
+    },
+    {
+      "key": "y",
+      "type": "deleted",
+      "oldValue": {
+        "delete": "it"
+      }
+    },
+    {
+      "key": "z",
+      "type": "unchanged",
+      "value": true
     }
-  },
-  {
-    "key": "z",
-    "type": "unchanged",
-    "value": true
-  }
-] -->
+  ]
+  ```
+  </details>
+</details>
 
 ## CLI-application
 
@@ -222,4 +254,3 @@ Options:
   _gendiff -f json -s 2 ./__fixtures__/1.json ./__fixtures__/2.json_
 
   ![make me pretty json](./img/json_spaces.png?raw=true)
-

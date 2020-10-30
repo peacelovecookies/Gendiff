@@ -4,7 +4,7 @@ import Json from './formats/Json.js';
 
 export default class Formatter {
   constructor(options) {
-    const { format, spacesCount, spacesSign = ' ' } = options;
+    const { format = 'pretty', spacesCount, spacesSign = ' ' } = options;
     const formatters = {
       json: Json,
       pretty: Pretty,

@@ -1,6 +1,6 @@
 {
   "name": "plc_gendiff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compares two configuration files and shows a difference.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,9 @@
     "url": "git+https://github.com/peacelovecookies/frontend-project-lvl2.git"
   },
   "keywords": [
-    "cli", "get difference", "configuration files"
+    "cli",
+    "get difference",
+    "configuration files"
   ],
   "author": "peacelovecookies",
   "license": "ISC",

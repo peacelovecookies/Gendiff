@@ -3,7 +3,7 @@ install:
 publish:
 	npm publish --dry-run | npm link
 lint:
-	npx eslint
+	npx eslint .
 test:
 	npm test
 test-coverage:

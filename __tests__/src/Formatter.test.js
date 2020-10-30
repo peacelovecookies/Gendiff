@@ -4,7 +4,7 @@ import path from 'path';
 
 import Parser from '../../src/Parser';
 import Formatter from '../../src/Formatter';
-import { stringFormat, jsonFormat, plainFormat } from '../../__fixtures__/results/formatting';
+import { prettyFormat, jsonFormat, plainFormat } from '../../__fixtures__/results/formatting';
 
 describe('Formatting tests', () => {
   const filepath1 = path.resolve(__dirname, '../..', '__fixtures__', 'before.json');
@@ -20,7 +20,7 @@ describe('Formatting tests', () => {
     expect(() => formatter.stringify(ast)).toThrow(`Use one of the following formats: ${formats}`);
   });
   const differentFormatsCase = [
-    ['pretty', stringFormat],
+    ['pretty', prettyFormat],
     ['json', jsonFormat],
     ['plain', plainFormat],
   ];

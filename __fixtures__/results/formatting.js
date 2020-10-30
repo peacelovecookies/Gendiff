@@ -1,6 +1,6 @@
 import { ast } from './parsing';
 
-const stringFormat = `
+const prettyFormat = `
 {
     but: {
         need: {
@@ -54,7 +54,7 @@ Property 'zun' was added with value: [complex value]
 `;
 
 export {
-  stringFormat,
+  prettyFormat,
   plainFormat,
   jsonFormat,
 };

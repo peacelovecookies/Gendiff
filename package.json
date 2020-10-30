@@ -22,6 +22,9 @@
     "type": "git",
     "url": "git+https://github.com/peacelovecookies/frontend-project-lvl2.git"
   },
+  "keywords": [
+    "cli", "get difference", "configuration files"
+  ],
   "author": "peacelovecookies",
   "license": "ISC",
   "bugs": {

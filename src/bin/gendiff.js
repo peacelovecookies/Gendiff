@@ -28,7 +28,7 @@ program
       {
         format,
         spacesSign: sign,
-        spacesCount: parseInt(spaces, 10),
+        spacesCount: spaces ? parseInt(spaces, 10) : undefined,
         sort: booleans[sort],
       },
     );

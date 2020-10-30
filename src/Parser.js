@@ -6,8 +6,8 @@ import _ from 'lodash';
 import isObject from './utils.js';
 
 export default class Parser {
-  constructor({ sort = true }) {
-    this.isSortNeeded = sort;
+  constructor(options = {}) {
+    this.isSortNeeded = options.sort ?? true;
   }
 
   getMeta(key, [obj1, obj2]) {

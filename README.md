@@ -39,7 +39,7 @@ _If you want to use it as a library for your project, check following documentat
 <details>
 <summary>Initial files: </summary>
     
-```javascript
+```json
 // file1.json
 {
   "z": true,
@@ -118,7 +118,8 @@ _If you want to use it as a library for your project, check following documentat
 <details>
   <summary>Plain format: </summary>
 
-  ``` // app.js
+  ```js
+  // app.js
   import gendiff from 'plc_gendiff';
 
   const plainOptions = { format: 'plain', sort: 'false' };
@@ -128,12 +129,14 @@ _If you want to use it as a library for your project, check following documentat
   <details>
     <summary>console.log(plain)</summary>
     
-    Property 'b.c' was updated. From 'nested' to 5
-    Property 'y' was removed
-    Property 'array' was updated. From [complex value] to 'now it is string'
-    Property 'or' was updated. From 'change this' to 'wanna some milk?'
-    Property 'array_as_value' was updated. From [1, 2, 3] to [1, 2, 5]
-    Property 'add' was added with value: [complex value]
+  ```
+  Property 'b.c' was updated. From 'nested' to 5
+  Property 'y' was removed
+  Property 'array' was updated. From [complex value] to 'now it is string'
+  Property 'or' was updated. From 'change this' to 'wanna some milk?'
+  Property 'array_as_value' was updated. From [1, 2, 3] to [1, 2, 5]
+  Property 'add' was added with value: [complex value]
+  ```
   
   </details>
 </details>
@@ -141,7 +144,8 @@ _If you want to use it as a library for your project, check following documentat
 <details>
   <summary>Json format: </summary>
 
-  ``` // app.js
+  ```js
+  // app.js
   import gendiff from 'plc_gendiff';
 
   const jsonOptions = { format: 'json', sort: 2 };
@@ -151,7 +155,7 @@ _If you want to use it as a library for your project, check following documentat
   <details>
     <summary>console.log(json)</summary>
 
-  ```
+  ```json
   [
     {
       "key": "add",
@@ -224,33 +228,40 @@ _If you want to use it right in your terminal, here's some documentation and exm
 
 ### Help
 
-Usage: gendiff [options] <filepath1> <filepath2>
+    Usage: gendiff [options] <filepath1> <filepath2>
 
-Compares two configuration files and shows a difference.
+    Compares two configuration files and shows a difference.
 
-Options:
-  -V, --version          output the version number
-  -f, --format <type>    output format, by default "pretty" (default: "pretty")
-  -n, --sign <type>      sign used for formatting identations. By default, " " (one space) (default: " ")
-  -s, --spaces <number>  count of spaces in pretty format, by default 4 for pretty format and 0 for json.
-  -t, --sort <boolean>   sort output by keys. By default, true. (default: "true")
-  -h, --help             display help for command
+    Options:
+
+      -V, --version          output the version number
+
+      -f, --format <type>    output format, by default "pretty" (default: "pretty")
+      
+      -n, --sign <type>      sign used for formatting identations. By default, " " (one space) (default: " ")
+      
+      -s, --spaces <number>  count of spaces in pretty format, by default 4 for pretty format and 0 for json.
+      
+      -t, --sort <boolean>   sort output by keys. By default, true. (default: "true")
+      
+      -h, --help             display help for command
 
 ### Example
   
-  _gendiff -n _ ./__fixtures__/1.json ./__fixtures__/2.json_
+    gendiff -n _ ./__fixtures__/1.json ./__fixtures__/2.json
   
   ![make me pretty](./img/pretty.png?raw=true)
 
-  _gendiff -f plain -t false ./__fixtures__/1.json ./__fixtures__/2.json_ and
-  _gendiff -f plain ./__fixtures__/1.json ./__fixtures__/2.json_
+    gendiff -f plain -t false ./__fixtures__/1.json ./__fixtures__/2.json
+    and
+    gendiff -f plain ./__fixtures__/1.json ./__fixtures__/2.json
 
   ![make me plain](./img/plain.png?raw=true)
   
-  _gendiff -f json ./__fixtures__/1.json ./__fixtures__/2.json_
+    gendiff -f json ./__fixtures__/1.json ./__fixtures__/2.json
 
   ![make me json](./img/json_default.png?raw=true)
 
-  _gendiff -f json -s 2 ./__fixtures__/1.json ./__fixtures__/2.json_
+    gendiff -f json -s 2 ./__fixtures__/1.json ./__fixtures__/2.json
 
   ![make me pretty json](./img/json_spaces.png?raw=true)

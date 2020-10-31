@@ -5,13 +5,24 @@
 
 ## Install
 
-1. Simply copy-paste this in your bash/terminal: `sudo npm i plc_gendiff` or `sudo npm i -g plc_gendiff` if you want to use as a cli-app.
+1. Simply copy-paste this in your bash/terminal:
+
+    `sudo npm i plc_gendiff`
+
+      or
+
+   `sudo npm i -g plc_gendiff`
+    
+    if you want to use as a cli-app.
+
 2. Enter your system password.
 3. Use it as [library](#library) in your code or right in your bash as a [cli-application](#cli-application).
 
 ## Uninstall:
 
-Didn't like the app? Uninstall it: `sudo npm uninstall -g plc_gendiff`
+Didn't like the app? Uninstall it:
+
+`sudo npm uninstall -g plc_gendiff`
 
 ## Library
 

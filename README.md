@@ -1,4 +1,4 @@
-# frontend-project-lvl2
+# Difference generator
 ![Node CI](https://github.com/peacelovecookies/frontend-project-lvl2/workflows/Node%20CI/badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/4bb889005323f929a5be/maintainability)](https://codeclimate.com/github/peacelovecookies/frontend-project-lvl2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/4bb889005323f929a5be/test_coverage)](https://codeclimate.com/github/peacelovecookies/frontend-project-lvl2/test_coverage)
 
 ---
@@ -48,38 +48,38 @@ _If you want to use it as a library for your project, check following documentat
 ### Example
 
 <details>
-<summary>Initial files: </summary>
+  <summary>Initial files: </summary>
     
-```json
-// file1.json
-{
-  "z": true,
-  "b": {
-    "c": "nested"
-  },
-  "y": {
-    "delete": "it"
-  },
-  "array": {
-    "change": "this"
-  },
-  "or": "change this",
-}
-
-// file2.json
-{
-  "z": true,
-  "b": {
-    "c": 5
-  },
-  "array": "now it is string"
-  "or": "wanna some milk?",
-  "add": {
-    "object": "here",
-    "nobody": "reads documentation..."
+  ```json
+  // file1.json
+  {
+    "z": true,
+    "b": {
+      "c": "nested"
+    },
+    "y": {
+      "delete": "it"
+    },
+    "array": {
+      "change": "this"
+    },
+    "or": "change this",
   }
-}
-```
+
+  // file2.json
+  {
+    "z": true,
+    "b": {
+      "c": 5
+    },
+    "array": "now it is string"
+    "or": "wanna some milk?",
+    "add": {
+      "object": "here",
+      "nobody": "reads documentation..."
+    }
+  }
+  ```
 
 </details>
 

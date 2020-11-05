@@ -6,7 +6,7 @@ import _ from 'lodash';
 import isObject from './utils.js';
 
 export default class Parser {
-  constructor(options = {}) {
+  constructor(options) {
     this.isSortNeeded = options.sort ?? true;
   }
 

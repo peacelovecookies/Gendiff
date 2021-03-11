@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build",
-    "test": "npx -n --experimental-vm-modules jest"
+    "test": "npx jest"
   },
   "bin": {
     "gendiff": "dist/bin/gendiff.js"
